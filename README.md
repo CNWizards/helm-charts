@@ -14,5 +14,5 @@ helm repo add cnwizards https://cnwizards.github.io/helm-charts
 # to pull the latest Helm charts
 helm pull cnwizards/node-wizard   
 # to install the Helm charts
-helm install node-wizard cnwizards/node-wizard
+helm install node-wizard cnwizards/node-wizard --namespace node-wizard --create-namespace
 ```
