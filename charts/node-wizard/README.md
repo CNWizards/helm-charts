@@ -4,7 +4,7 @@
 
 Node Wizard Helm Chart
 
-**Homepage:** <https://github.com/CNWizards/node-wizard>
+**Homepage:** <https://github.com/cnwizards/node-wizard>
 
 ## Maintainers
 
@@ -23,7 +23,7 @@ Node Wizard Helm Chart
 | env.ignoreAllDaemonsets | string | `"true"` |  |
 | env.logLevel | string | `"info"` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"ghcr.io/pehlicd/node-wizard"` |  |
+| image.repository | string | `"ghcr.io/cnwizards/node-wizard"` |  |
 | image.tag | string | `"dev-latest"` |  |
 | name | string | `"node-wizard"` |  |
 | podSecurityContext | object | `{}` |  |
