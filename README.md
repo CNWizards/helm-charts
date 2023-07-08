@@ -10,7 +10,7 @@ To install the Helm charts, you need to add the Helm repository to your local He
 
 ```bash
 # to add the Helm repository
-helm repo add cnwizards https://cnwizards.github.io/helm-charts 
+helm repo add cnwizards https://charts.cloudnativewizards.dev
 # to pull the latest Helm charts
 helm pull cnwizards/node-wizard   
 # to install the Helm charts
