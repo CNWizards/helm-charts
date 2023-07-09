@@ -1,8 +1,8 @@
 apiVersion: v2
 name: node-wizard
-version: 0.1.0
+version: 0.2.0
 description: Node Wizard Helm Chart
-home: https://github.com/CNWizards/node-wizard
+home: https://github.com/cnwizards/node-wizard
 maintainers:
   - name: Ugur Can Ozturk
     url: https://github.com/ugur99
