@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        app: nodewizard
     spec:
       serviceAccountName: {{ .Values.serviceAccountName  }}
       securityContext:
