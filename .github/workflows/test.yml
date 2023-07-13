@@ -41,5 +41,5 @@ jobs:
         if: steps.list-changed.outputs.changed == 'true'
 
       - name: Run chart-testing (install)
-        run: ct install --config ct.yaml --namespace node-wizard --helm-extra-set-args --set=presets.otlpExporter.enabled=false,presets.loggingExporter.enabled=true
+        run: ct install --config ct.yaml --namespace default
         if: steps.list-changed.outputs.changed == 'true'
