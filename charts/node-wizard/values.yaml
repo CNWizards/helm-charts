@@ -8,17 +8,23 @@ image:
   tag: dev-latest
   pullPolicy: Always
 
-resources:
-  limits:
-    cpu: 250m
-    memory: 512Mi
-  requests:
-    cpu: 100m
-    memory: 256Mi
+resources: {}
+#  limits:
+#    cpu: 250m
+#    memory: 512Mi
+#  requests:
+#    cpu: 100m
+#    memory: 256Mi
 
 podSecurityContext: {}
 
 containerSecurityContext: {}
+
+# Node Wizard prometheus exporter configuration
+service:
+  type: ClusterIP
+  port: 8989
+  targetPort: 8989
 
 # Node Wizard configuration. These values must be set.
 env:
