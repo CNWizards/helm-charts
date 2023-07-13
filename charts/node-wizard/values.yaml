@@ -26,6 +26,18 @@ service:
   port: 8989
   targetPort: 8989
 
+# ServiceMonitor configuration
+serviceMonitor:
+  enabled: false
+  namespace: monitoring
+  interval: 30s
+  scrapeTimeout: 10s
+  labels:
+    release: prometheus
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8989"
+
 # Node Wizard configuration. These values must be set.
 env:
   logLevel: "info"
