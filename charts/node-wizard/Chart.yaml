@@ -4,9 +4,9 @@ version: 0.2.0
 description: Node Wizard Helm Chart
 home: https://github.com/cnwizards/node-wizard
 maintainers:
-  - name: Ugur Can Ozturk
+  - name: ugur99
     url: https://github.com/ugur99
     email: ugurozturk918@gmail.com
-  - name: Furkan Pehlivan
+  - name: pehlicd
     url: https://github.com/pehlicd
     email: furkanpehlivan34@gmail.com

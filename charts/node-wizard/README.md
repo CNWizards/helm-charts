@@ -1,6 +1,6 @@
 # node-wizard
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square)
 
 Node Wizard Helm Chart
 
@@ -28,10 +28,10 @@ Node Wizard Helm Chart
 | name | string | `"node-wizard"` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `3` |  |
-| resources.limits.cpu | string | `"250m"` |  |
-| resources.limits.memory | string | `"512Mi"` |  |
-| resources.requests.cpu | string | `"100m"` |  |
-| resources.requests.memory | string | `"256Mi"` |  |
+| resources | object | `{}` |  |
+| service.port | int | `8989` |  |
+| service.targetPort | int | `8989` |  |
+| service.type | string | `"ClusterIP"` |  |
 | serviceAccountName | string | `"node-wizard"` |  |
 
 ----------------------------------------------

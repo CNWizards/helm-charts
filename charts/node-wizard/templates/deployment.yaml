@@ -20,8 +20,6 @@ spec:
       labels:
         app: nodewizard
     spec:
-      imagePullSecrets:
-        - name: ghcr-sec
       serviceAccountName: {{ .Values.serviceAccountName  }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -31,13 +29,19 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         - name: LOG_LEVEL
-          value: "{{ .Values.env.logLevel }}"
+          value: "{{ .Values.env.logLevel | default "info" }}"
         - name: IGNORE_ALL_DAEMONSETS
-          value: "{{ .Values.env.ignoreAllDaemonsets }}"
+          value: "{{ .Values.env.ignoreAllDaemonsets | default "true" }}"
         - name: DELETE_EMPTY_DIR_DATA
-          value: "{{ .Values.env.deleteEmptyDirData }}"
+          value: "{{ .Values.env.deleteEmptyDirData | default "true" }}"
         - name: FORCE_DELETE_PODS
-          value: "{{ .Values.env.forceDeletePods }}"
+          value: "{{ .Values.env.forceDeletePods | default "true" }}"
+        - name: METRIC_PORT
+          value: "{{ .Values.service.targetPort | default "8989" }}"
+        ports:
+          - containerPort: {{ .Values.service.targetPort | default "8989" }}
+            name: metrics
+            protocol: TCP
         resources:
         {{- toYaml .Values.resources | nindent 10 }}
         securityContext:
