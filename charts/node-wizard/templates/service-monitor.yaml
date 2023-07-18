@@ -3,11 +3,16 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: {{ .Values.name }}-monitor
-  namespace: {{ .Values.serviceMonitor.namespace }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: nodewizard
+  {{- if .Values.serviceMonitor.extraLabels }}
+    {{- toYaml .Values.serviceMonitor.extraLabels | nindent 4 }}
+  {{- end }}
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ .Values.name }}
+      app.kubernetes.io/name: nodewizard
   endpoints:
   - port: metrics
     path: /metrics

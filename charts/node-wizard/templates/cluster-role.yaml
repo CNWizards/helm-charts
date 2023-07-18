@@ -3,6 +3,8 @@ kind: ClusterRole
 metadata:
   name: {{ .Values.serviceAccountName  }}-cr
   namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: nodewizard
 rules:
   - apiGroups:
       - coordination.k8s.io
