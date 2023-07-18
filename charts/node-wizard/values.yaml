@@ -24,7 +24,7 @@ service:
 
 # ServiceMonitor configuration
 serviceMonitor:
-  enabled: true
+  enabled: false
   extraLabels: {}
     # release: prom-stack
 

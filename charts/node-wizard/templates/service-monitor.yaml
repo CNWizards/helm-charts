@@ -5,14 +5,14 @@ metadata:
   name: {{ .Values.name }}-monitor
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/name: nodewizard
+    app.kubernetes.io/name: {{ .Values.name }}
   {{- if .Values.serviceMonitor.extraLabels }}
     {{- toYaml .Values.serviceMonitor.extraLabels | nindent 4 }}
   {{- end }}
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: nodewizard
+      app.kubernetes.io/name: {{ .Values.name }}
   endpoints:
   - port: metrics
     path: /metrics

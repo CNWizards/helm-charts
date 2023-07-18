@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.serviceAccountName  }}-cr
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/name: nodewizard
+    app.kubernetes.io/name: {{ .Values.name }}
 rules:
   - apiGroups:
       - coordination.k8s.io

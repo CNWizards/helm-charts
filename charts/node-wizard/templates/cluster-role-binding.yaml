@@ -3,7 +3,7 @@ kind: ClusterRoleBinding
 metadata:
   name: {{ .Values.serviceAccountName  }}-crb
   labels:
-    app.kubernetes.io/name: nodewizard
+    app.kubernetes.io/name: {{ .Values.name }}
 subjects:
 - kind: ServiceAccount
   name: {{ .Values.serviceAccountName  }}
