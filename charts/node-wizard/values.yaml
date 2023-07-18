@@ -25,8 +25,8 @@ service:
 # ServiceMonitor configuration
 serviceMonitor:
   enabled: true
-  extraLabels: 
-    release: prom-stack
+  extraLabels: {}
+    # release: prom-stack
 
 # Node Wizard configuration. These values must be set.
 env:

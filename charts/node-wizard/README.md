@@ -17,7 +17,6 @@ Node Wizard Helm Chart
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| containerSecurityContext | object | `{}` |  |
 | env.deleteEmptyDirData | string | `"true"` |  |
 | env.forceDeletePods | string | `"true"` |  |
 | env.ignoreAllDaemonsets | string | `"true"` |  |
@@ -26,7 +25,6 @@ Node Wizard Helm Chart
 | image.repository | string | `"ghcr.io/cnwizards/node-wizard"` |  |
 | image.tag | string | `"dev-latest"` |  |
 | name | string | `"node-wizard"` |  |
-| podSecurityContext | object | `{}` |  |
 | replicaCount | int | `3` |  |
 | resources | object | `{}` |  |
 | service.port | int | `8989` |  |
