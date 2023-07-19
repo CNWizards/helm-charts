@@ -20,17 +20,6 @@ spec:
       labels:
         app.kubernetes.io/name: {{ .Values.name }}
     spec:
-      topologySpreadConstraints:
-        - maxSkew: 1
-          topologyKey: "kubernetes.io/hostname"
-          whenUnsatisfiable: "ScheduleAnyway"
-          labelSelector: 
-            matchLabels:
-              app.kubernetes.io/name: {{ .Values.name }}
-          matchLabelKeys:
-            - pod-template-hash
-          nodeAffinityPolicy: "Ignore"
-          nodeTaintsPolicy: "Honor"
       serviceAccountName: {{ .Values.serviceAccountName  }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
