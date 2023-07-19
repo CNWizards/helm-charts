@@ -16,10 +16,6 @@ resources: {}
 #    cpu: 100m
 #    memory: 256Mi
 
-podSecurityContext: {}
-
-containerSecurityContext: {}
-
 # Node Wizard prometheus exporter configuration
 service:
   type: ClusterIP
@@ -29,7 +25,8 @@ service:
 # ServiceMonitor configuration
 serviceMonitor:
   enabled: false
-  namespace: monitoring
+  extraLabels: {}
+    # release: prom-stack
 
 # Node Wizard configuration. These values must be set.
 env:
