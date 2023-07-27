@@ -38,6 +38,10 @@ spec:
           value: "{{ .Values.env.forceDeletePods | default "true" }}"
         - name: METRIC_PORT
           value: "{{ .Values.service.targetPort | default "8989" }}"
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
         ports:
           - containerPort: {{ .Values.service.targetPort | default "8989" }}
             name: metrics
