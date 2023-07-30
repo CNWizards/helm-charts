@@ -1,6 +1,6 @@
 # node-wizard
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square)
 
 Node Wizard Helm Chart
 
@@ -17,6 +17,8 @@ Node Wizard Helm Chart
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| containerSecurityContext | object | `{}` |  |
+| distrubutePods | bool | `true` |  |
 | env.deleteEmptyDirData | string | `"true"` |  |
 | env.forceDeletePods | string | `"true"` |  |
 | env.ignoreAllDaemonsets | string | `"true"` |  |
@@ -25,13 +27,18 @@ Node Wizard Helm Chart
 | image.repository | string | `"ghcr.io/cnwizards/node-wizard"` |  |
 | image.tag | string | `"dev-latest"` |  |
 | name | string | `"node-wizard"` |  |
+| podDistribution.topologySpreadConstraints[0].labelSelector.matchLabels."app.kubernetes.io/name" | string | `"nodewizard"` |  |
+| podDistribution.topologySpreadConstraints[0].maxSkew | int | `1` |  |
+| podDistribution.topologySpreadConstraints[0].topologyKey | string | `"kubernetes.io/hostname"` |  |
+| podDistribution.topologySpreadConstraints[0].whenUnsatisfiable | string | `"ScheduleAnyway"` |  |
+| podSecurityContext | object | `{}` |  |
 | replicaCount | int | `3` |  |
 | resources | object | `{}` |  |
 | service.port | int | `8989` |  |
 | service.targetPort | int | `8989` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccountName | string | `"node-wizard"` |  |
-| serviceMonitor.enabled | bool | `true` |  |
+| serviceMonitor.enabled | bool | `false` |  |
 | serviceMonitor.extraLabels | object | `{}` |  |
 
 ----------------------------------------------
