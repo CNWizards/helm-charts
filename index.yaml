@@ -2,6 +2,22 @@ apiVersion: v1
 entries:
   node-wizard:
   - apiVersion: v2
+    created: "2023-07-30T09:06:53.968384072Z"
+    description: Node Wizard Helm Chart
+    digest: 29f5e4a3731b580c6c7afb0b4aeb6eb760092e2346fd6740e548ce9c1d745fa2
+    home: https://github.com/cnwizards/node-wizard
+    maintainers:
+    - email: ugurozturk918@gmail.com
+      name: ugur99
+      url: https://github.com/ugur99
+    - email: furkanpehlivan34@gmail.com
+      name: pehlicd
+      url: https://github.com/pehlicd
+    name: node-wizard
+    urls:
+    - https://github.com/cnwizards/helm-charts/releases/download/node-wizard-0.3.0/node-wizard-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     created: "2023-07-09T10:37:47.645090626Z"
     description: Node Wizard Helm Chart
     digest: 3b7825fa405e713ad5dd38c9ced28c024a11a276e0f810cdc76034f384e55d1d
@@ -33,4 +49,4 @@ entries:
     urls:
     - https://github.com/cnwizards/helm-charts/releases/download/node-wizard-0.1.0/node-wizard-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-09T10:37:47.645098327Z"
+generated: "2023-07-30T09:06:53.968392971Z"
