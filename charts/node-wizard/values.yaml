@@ -16,6 +16,21 @@ resources: {}
 #    cpu: 100m
 #    memory: 256Mi
 
+podSecurityContext: {}
+
+containerSecurityContext: {}
+
+## If it's true, the pods will be distributed to different nodes according to constraint below.
+distrubutePods: true
+podDistribution:
+  topologySpreadConstraints:
+    - maxSkew: 1
+      topologyKey: kubernetes.io/hostname
+      whenUnsatisfiable: ScheduleAnyway
+      labelSelector:
+        matchLabels:
+          app.kubernetes.io/name: nodewizard
+
 # Node Wizard prometheus exporter configuration
 service:
   type: ClusterIP
