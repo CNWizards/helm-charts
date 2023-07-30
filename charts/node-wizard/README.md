@@ -1,6 +1,6 @@
 # node-wizard
 
-![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square)
+![Release](https://img.shields.io/github/v/release/cnwizards/helm-charts?style=social)
 
 Node Wizard Helm Chart
 
