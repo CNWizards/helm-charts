@@ -4,12 +4,12 @@ metadata:
   name: {{ .Values.name }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app: nodewizard
+    app.kubernetes.io/name: {{ .Values.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: nodewizard
+      app.kubernetes.io/name: {{ .Values.name }}
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: nodewizard
+        app.kubernetes.io/name: {{ .Values.name }}
     spec:
       {{- if .Values.distrubutePods }}
       {{ toYaml .Values.podDistribution | nindent 6 }}
@@ -45,6 +45,10 @@ spec:
           value: "{{ .Values.env.forceDeletePods | default "true" }}"
         - name: METRIC_PORT
           value: "{{ .Values.service.targetPort | default "8989" }}"
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
         ports:
           - containerPort: {{ .Values.service.targetPort | default "8989" }}
             name: metrics
@@ -52,9 +56,18 @@ spec:
         resources:
         {{- toYaml .Values.resources | nindent 10 }}
         securityContext:
-            {{- toYaml .Values.containerSecurityContext | nindent 12 }}
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
-      securityContext: {}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
       terminationGracePeriodSeconds: 30

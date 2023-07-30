@@ -40,7 +40,8 @@ service:
 # ServiceMonitor configuration
 serviceMonitor:
   enabled: false
-  namespace: monitoring
+  extraLabels: {}
+    # release: prom-stack
 
 # Node Wizard configuration. These values must be set.
 env:
